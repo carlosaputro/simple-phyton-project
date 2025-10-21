@@ -21,20 +21,23 @@ dt = [
     ["Natalia", "Wanita", 19, "Rusia", "ENFJ", "UNPAD"],
     ["Farhan", "Pria", 21, "Arab", "ENTP", "UNPAR"],
     ["Layla", "Wanita", 20, "Arab", "ISFJ", "ITB"]
-]
+]  #Database
 
-r = [0 for p in range (6)]
-g = str("a")
-while g == "a":
-    l = str(input("Apakah anda LGBT? Y/N: "))
-    if l == "Y" or l =="y":
-        print("Maaf kuota anda habis")
-        exit()
-    elif l == "N" or l == "n":
-        print("👍")
-        g = "n"
-    else:
-        g = "a"
+pu = [["User1","Admin123456"],["User2","Admin1001"]]
+a = [0,0]
+logged_in = False
+while logged_in = False:
+    a[0] = input("Username: ")
+    a[1] = input("Password: ")
+    i = 0
+    while i <= len(pu):
+        if pu[i] == a[0]:
+            logged_in = True
+            break
+        else:
+            logged_in = False
+        i += 1   
+r = [0 for p in range (6)] #Menyimpan data yang nantinya diinput oleh user mengenai preferensi mereka 
 yakin = 0
 while yakin == 0:
     while r[0] != "Pria" and r[0] != "Wanita":
@@ -49,7 +52,7 @@ while yakin == 0:
         if r[2] < r[1]:
             r[1],r[2] = r[2],r[1]
         if r[1] < 18:
-            print("Aw hell nah")
+            print("Tidak boleh mencari yang di bawah 18 tahun")
             exit()
     while r[3] == 0:
         r[3] = str(input("Ras yang dicari? (Pisahkan dengan koma jika lebih dari 1)"))
@@ -61,6 +64,8 @@ while yakin == 0:
     while r[5] == 0:
         r[5] = str(input("ITB/UNPAR/UNPAD\nMau dari Universitas mana? (Pisahkan dengan koma jika lebih dari 1)"))
         r[5] = [x.strip().upper() for x in r[5].split(",")]
+
+    print(f"Yang anda cari\n Range usia: {r[1]} - {r[2]}\n Ras: {r[3]}\n MBTI: {r[4]}\n Kampus: {r[5]}")
     yakin = input("Apakah anda sudah yakin? Y/N")
     if yakin == "Y" or yakin == "y":
         yakin = 1
@@ -71,8 +76,9 @@ while yakin == 0:
         yakin = 0
         r = [0 for p in range (6)]
 
-mul = [-1 for t in range(4)]
+mul = [-1 for t in range(4)] #array untuk multiplier faktor
 while round(sum(mul),0) != 1:
+    print("Masukkan seberapa penting faktor-faktor ini bagi Anda! (0 sangat tidak penting, 100 sangat penting) ")
     while mul[0] < 0 or mul[0] > 1:
         mul[0] = int(input("Masukkan faktor pengali usia (per 100): "))/100
     while mul[1] < 0 or mul[1] > 1:
@@ -84,12 +90,13 @@ while round(sum(mul),0) != 1:
     gr = sum(mul)
     for q in range (4):
         mul[q] = (mul[q] * 1)/gr
+print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 jodh = 0
 while jodh == 0:
     print("Processing.....0%")
-    for x in range(10,100,10):
+    for x in range(10,101,1):
         print("Finding jodoh.."+str(x),"%")
-        time.sleep(1)
+        time.sleep(0.01)
 
     c = 0
     i = 0
@@ -117,7 +124,7 @@ while jodh == 0:
     if jodoh == "NULL":
         print("Yah gak ada yang cocok 😞")
 
-    print("Selamat! Kamu paling cocok dengan:",jodoh+"!\nIni profilnya!",profil)
+    print("Selamat! Kamu paling cocok dengan:",jodoh+"!\nIni profilnya!\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++","\nNama:", profil[0],"\nGender:", profil[1],"\nUsia:",profil[2],"\nRas:",profil[3],"\nMBTI:",profil[4],"\nKampus:",profil[5],"\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     confirm = str(input("Apakah anda terima? Y/N: "))
     if confirm == "Y" or confirm == "y":
         print("Selamat berbahagia!")
