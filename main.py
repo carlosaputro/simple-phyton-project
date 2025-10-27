@@ -1,27 +1,26 @@
 import time
 import random
 dt = [
-    ["Kevin Tanuwijaya", "Pria", 22, "Tionghoa", "ENTP", "ITB", "Teknik"],
-    ["Cindy Halim", "Wanita", 20, "Tionghoa", "INFJ", "UNPAR", "Kesehatan"],
-    ["Wilson Lie", "Pria", 19, "Tionghoa", "ISTJ", "ITB", "Sains"],
-    ["Lydia Tan", "Wanita", 18, "Tionghoa", "ENFP", "UNPAD", "Sastra"],
-    ["Budi Santoso", "Pria", 21, "Jawa", "INTJ", "ITB", "Teknik"],
-    ["Sari Wulandari", "Wanita", 20, "Jawa", "ISFJ", "UNPAR", "Ekonomi"],
-    ["Rizal Maulana", "Pria", 19, "Sunda", "ESTP", "UNPAD", "Kesehatan"],
-    ["Nia Rahmawati", "Wanita", 18, "Sunda", "ESFP", "ITB", "Seni"],
-    ["Togar Simanjuntak", "Pria", 23, "Batak", "ENTJ", "UNPAR", "Hukum"],
-    ["Lestari Sihombing", "Wanita", 22, "Batak", "ISFP", "UNPAD", "Kesehatan"],
-    ["Hans Gunawan", "Pria", 21, "Tionghoa", "INTP", "ITB", "Teknik"],
-    ["Greta Wijaya", "Wanita", 19, "Tionghoa", "INFJ", "UNPAD", "Kesehatan"],
-    ["Yonas Pattiradjawane", "Pria", 22, "Ambon", "ENFP", "UNPAR", "Seni"],
-    ["Maria Niron", "Wanita", 21, "Flores", "ESFJ", "ITB", "Seni"],
-    ["Alfred Tendean", "Pria", 23, "Manado", "ESTJ", "UNPAD", "Bisnis"],
-    ["Isabela Langi", "Wanita", 20, "Manado", "INFP", "UNPAR", "Sastra"],
-    ["Andri Putra", "Pria", 22, "Minang", "ISTP", "ITB", "Teknik"],
-    ["Natalia Runtu", "Wanita", 19, "Minahasa", "ENFJ", "UNPAD", "Hukum"],
-    ["Farhan Alatas", "Pria", 21, "Arab", "ENTP", "UNPAR", "Bisnis"],
-    ["Layla Zahra", "Wanita", 20, "Arab", "ISFJ", "ITB", "Teknik"],
-    ["Bahlil Lalahida", "Wanita", 20, "Jawa", "LPG", "UNPAR", "Bisnis"]
+    ["Kevin Tanuwijaya", "Pria", 22, "Tionghoa", "ENTP", "ITB", "Teknik", "Suka makan Ayam goreng"],
+    ["Cindy Halim", "Wanita", 20, "Tionghoa", "INFJ", "UNPAR", "Kesehatan", "Doktermu di masa depan"],
+    ["Wilson Lie", "Pria", 19, "Tionghoa", "ISTJ", "ITB", "Sains", "Suka travelling"],
+    ["Lydia Tan", "Wanita", 18, "Tionghoa", "ENFP", "UNPAD", "Sastra", "Apakah kamu adalah karya terindah yang aku cari selama ini?"],
+    ["Budi Santoso", "Pria", 21, "Jawa", "INTJ", "ITB", "Teknik", "Coding for life"],
+    ["Sari Wulandari", "Wanita", 20, "Jawa", "ISFJ", "UNPAR", "Bisnis", "Mari kita bangun masa depan bersama"],
+    ["Rizal Maulana", "Pria", 19, "Sunda", "ESTP", "UNPAD", "Kesehatan", "Akang dokter ganteng"],
+    ["Nia Rahmawati", "Wanita", 18, "Sunda", "ESFP", "ITB", "Seni","Seni adalah ledakan"],
+    ["Togar Simanjuntak", "Pria", 23, "Batak", "ENTJ", "UNPAR", "Hukum", "Call Simanjuntak"],
+    ["Lestari Sihombing", "Wanita", 22, "Batak", "ISFP", "UNPAD", "Kesehatan", "Mungkin aku obat dari sakit hatimu"],
+    ["Hans Gunawan", "Pria", 21, "Tionghoa", "INTP", "ITB", "Teknik", "Gaji 2 digit ni"],
+    ["Greta Wijaya", "Wanita", 19, "Tionghoa", "INFJ", "UNPAD", "Kesehatan", "Gak perlu khawatir cari dokter"],
+    ["Yonas Pattiradjawane", "Pria", 22, "Ambon", "ENFP", "UNPAR", "Seni", "Mari berkarya bersama"],
+    ["Maria Niron", "Wanita", 21, "Flores", "ESFJ", "ITB", "Seni", "Hidup adalah panggung seni"],
+    ["Alfred Tendean", "Pria", 23, "Manado", "ESTJ", "UNPAD", "Bisnis", "OTW CEO"],
+    ["Isabela Langi", "Wanita", 20, "Manado", "INFP", "UNPAR", "Sastra", "Kata hati adalah suara jiwa"],
+    ["Andri Putra", "Pria", 22, "Minang", "ISTP", "ITB", "Teknik", "Menunggu kamu sebelum lulus"],
+    ["Natalia Runtu", "Wanita", 19, "Minahasa", "ENFJ", "UNPAD", "Hukum", "Siap jadi pendamping hidup"],
+    ["Farhan Alatas", "Pria", 21, "Arab", "ENTP", "UNPAR", "Bisnis", "Bisnis bareng yuk"],
+    ["Layla Zahra", "Wanita", 20, "Arab", "ISFJ", "ITB", "Teknik", "Future Lockheed Martin Engineer"],
 ]
 
 
@@ -29,6 +28,22 @@ pu = [["User1","Admin123456"],["User2","Admin1001"],["User3","Password123"]] #Da
 a = [0,0]
 logged_in = False
 while logged_in == False:
+    have_account = (input("Apakah anda memiliki akun? Y/N: "))
+    if have_account == "N" or have_account == "n":
+        c = [0,0]
+        print("Tolong buat akun terlebih dahulu: ")
+        c[0] = input("Username: ")
+        pw_matched = False
+        while pw_matched == False:
+            p_1 = input("Password: ")
+            p_2 = input("Konfirmasi Password: ")
+            if p_1 == p_2:
+                c[1] = p_1
+                pu.append(c)
+                print("Akun berhasil dibuat")
+                pw_matched = True
+            else:
+                print("Password tidak sesuai")
     a[0] = input("Username: ")
     a[1] = input("Password: ")
     i = 0
@@ -38,13 +53,12 @@ while logged_in == False:
             break
         else:
             logged_in = False
-            print(a)
-            print(pu[i])
+            print("Username atau Password salah")
         i += 1   
 r = [0 for p in range (10)] #Menyimpan data yang nantinya diinput oleh user mengenai preferensi mereka 
 yakin = 0
 while yakin == 0:
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\nIsilah Profil dan preferensimu!\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("===================================================================================\nIsilah Profil dan preferensimu!\n===================================================================================")
     while r[6] == 0:
         r[6] = str(input("Nama: "))
     while r[9] == 0:
@@ -60,7 +74,13 @@ while yakin == 0:
             r[0] = "Wanita"
         elif r[0] == 2:
             r[0] = "Pria"
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    g = 0
+    while g < len(dt):
+        if dt[g][1] != r[0]:
+            del dt[g]
+        elif dt[g][1] == r[0]:
+            g += 1
+    print("===================================================================================")
     while r[1] == 0 or r[2] == 0:
         r[1] = int(input("Batas bawah usia yang dicari? "))
         r[2] = int(input("Batas atas usia yang dicari? "))
@@ -69,38 +89,40 @@ while yakin == 0:
         if r[1] < 18:
             print("Tidak boleh mencari yang di bawah 18 tahun")
             exit()
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("===================================================================================")
     while r[3] == 0:
         r[3] = str(input("Ras yang dicari? (Pisahkan dengan koma jika lebih dari 1)"))
         r_m = r[3]
         r[3] = r[3].capitalize()
         r[3] = [x.strip().capitalize() for x in r[3].split(",")]
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("===================================================================================")
     while r[4] == 0:
         r[4] = str(input("MBTI yang dicari? (Pisahkan dengan koma jika lebih dari 1)"))
         p_m = r[4]
         r[4] = [x.strip().upper() for x in r[4].split(",")]
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("===================================================================================")
     while r[5] == 0:
         r[5] = str(input("ITB/UNPAR/UNPAD\nMau dari Universitas mana? (Pisahkan dengan koma jika lebih dari 1)"))
         u_m = r[5]
         r[5] = [x.strip().upper() for x in r[5].split(",")]
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("===================================================================================")
     while r[8] == 0:
         r[8] = input("Teknik\n Sosial\n Seni\n Sastra\n Bisnis\n Kesehatan\n Hukum\n Preferensi Fakultas kamu? (Pisahkan dengan koma jika lebih dari 1)")
         f_m = r[8]
         r[8] = [x.strip().capitalize() for x in r[8].split(",")]
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("===================================================================================")
     print(f"Yang anda cari\n Range usia: {r[1]} - {r[2]}\n Ras: {r_m}\n MBTI: {p_m}\n Kampus: {u_m}\n Fakultas: {f_m}")
     yakin = input("Apakah anda sudah yakin? Y/N")
-    if yakin == "Y" or yakin == "y":
-        yakin = 1
-    elif yakin == "N" or yakin == "n":
-        yakin = 0
-        r = [0 for p in range (10)]
-    else:
-        yakin = 0
-        r = [0 for p in range (10)]
+    c = 0
+    while c >= 2:
+        if yakin == "Y" or yakin == "y":
+            c = 1
+        elif yakin == "N" or yakin == "n":
+            c = 0
+            r = [0 for p in range (10)]
+        else:
+            c = 100
+            r = [0 for p in range (10)]
 
 mul = [-1 for t in range(5)] #array untuk multiplier faktor
 while round(sum(mul),0) != 1:
@@ -118,7 +140,7 @@ while round(sum(mul),0) != 1:
     gr = sum(mul)
     for q in range (5):
         mul[q] = (mul[q] * 1)/gr
-print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+print("===================================================================================")
 jodh = 0
 while jodh == 0:
     c = 0
@@ -144,12 +166,11 @@ while jodh == 0:
             profil = dt[i]
             jdh = i
         c = 0 
-        i = i+1
-
+        i += 1
     if jodoh == "NULL":
         print("Yah gak ada yang cocok 😞, semangat ya")
         exit()
-    print("Selamat! Kamu paling cocok dengan:",jodoh+"!\nIni profilnya!\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++","\nNama:", profil[0],"\nGender:", profil[1],"\nUsia:",profil[2],"\nRas:",profil[3],"\nMBTI:",profil[4],"\nKampus:",profil[5],"\nFakultas:",profil[6],"\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("Selamat! Kamu paling cocok dengan:",jodoh+"!\nIni profilnya!\n===================================================================================\nNama:", profil[0],"\nGender:", profil[1],"\nUsia:",profil[2],"\nRas:",profil[3],"\nMBTI:",profil[4],"\nKampus:",profil[5],"\nFakultas:",profil[6],"\nProfil:",profil[7],"\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     confirm = str(input("Apakah anda terima? Y/N: "))
     if ((dt[jdh][6] == "Bisnis" and r[9] == "Teknik") or (dt[jdh][6] == "Teknik" and r[9] == "Bisnis")) and (confirm == "Y" or confirm == "y"):
             print("Wah, yakin nih?")
@@ -158,6 +179,7 @@ while jodh == 0:
                 del dt[jdh]
                 jdh = 0
                 confirm = "N"
+                i = i-1
             elif an == "Y" or an == "y":
                 print("Oke, semangat!")
     if confirm == "Y" or confirm == "y":
@@ -165,6 +187,7 @@ while jodh == 0:
         jodh = 1
     elif confirm == "N" or confirm == "n":
         del dt[jdh]
+        i = i-1
         jdh = 0
         
 
